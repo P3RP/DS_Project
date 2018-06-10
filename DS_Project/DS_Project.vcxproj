@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TdList.cpp" />
     <ClCompile Include="TdPlan.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="Todo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="PQueue.h" />
     <ClInclude Include="Queue.h" />
