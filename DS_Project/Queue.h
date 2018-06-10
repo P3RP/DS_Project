@@ -84,7 +84,7 @@ template<class _Ty>
 void Queue<_Ty>::enqueue(_Ty item)
 {
 	if (is_full())
-		throw FullQueue();
+		throw FullQueue<_Ty>();
 	else
 	{
 		Node<_Ty>* new_node;
@@ -104,7 +104,7 @@ template<class _Ty>
 void Queue<_Ty>::dequeue(_Ty & item)
 {
 	if (is_empty())
-		throw EmptyQueue();
+		throw EmptyQueue<_Ty>();
 	else
 	{
 		Node<_Ty>* temp;
