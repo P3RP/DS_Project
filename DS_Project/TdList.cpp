@@ -27,21 +27,22 @@ void TdList::add_todo()
 	int temp_time;
 	string temp_deadline;
 	int temp_priority;
+	getline(cin, temp_title);
 
 	// Value 정보 입력
 	cout << "\t====== 할 일의 정보 입력 ====="<<endl;
 
 	cout << "\t[ 제목 ]" << endl;
 	cout << "\t>> ";
-	cin >> temp_title;
+	getline(cin, temp_title);
 
 	cout << endl << "\t[ 내용 ]" << endl;
 	cout << "\t>> ";
-	cin >> temp_content;
+	getline(cin, temp_content);
 
 	cout << endl << "\t[ 완료일 ( YYYY / MM / DD ) ]" << endl;
 	cout << "\t>> ";
-	cin >> temp_deadline;
+	getline(cin, temp_deadline);
 
 	cout << endl << "\t[ 예상 소요 시간 (시간) ]" << endl;
 	cout << "\t>> ";
@@ -158,7 +159,8 @@ void TdList::modify_todo(int idx)
 		cout << "\t>> " << temp->get_title() << endl << endl;
 		cout << "\t[ 변경할 제목 ]" << endl;
 		cout << "\t>> ";
-		cin >> temp_title;
+		getline(cin, temp_title);
+		getline(cin, temp_title);
 
 		cout << "\t==============================" << endl;
 
@@ -179,7 +181,8 @@ void TdList::modify_todo(int idx)
 		cout << "\t>> " << temp->get_content() << endl << endl;
 		cout << "\t[ 변경할 내용 ]" << endl;
 		cout << "\t>> ";
-		cin >> temp_content;
+		getline(cin, temp_content);
+		getline(cin, temp_content);
 
 		cout << "\t==============================" << endl;
 
@@ -200,7 +203,8 @@ void TdList::modify_todo(int idx)
 		cout << "\t>> " << temp->get_deadline() << endl << endl;
 		cout << "\t[ 변경할 완료일 ( YYYY / MM / DD ) ]" << endl;
 		cout << "\t>> ";
-		cin >> temp_deadline;
+		getline(cin, temp_deadline);
+		getline(cin, temp_deadline);
 
 		cout << "\t==============================" << endl;
 
