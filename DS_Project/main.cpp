@@ -6,6 +6,6 @@ using namespace std;
 int main()
 {
 	Application ap;
-	ap.menu();
+	ap.start();
 	return 0;
 }
