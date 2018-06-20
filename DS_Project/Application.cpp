@@ -4,6 +4,8 @@
 
 Application::Application()
 {
+	cout << "내부 요소 초기화 중******" << endl;
+	td_list.initialize_list();
 }
 
 
@@ -16,79 +18,134 @@ void Application::start()
 	int select;
 	do
 	{
-		_interface();
+		_title();
+		_main_interface();
+
 		cout << "\t입력 >> ";
 		cin >> select;
-
-		system("cls");
 
 		switch (select)
 		{
 		case 0:
 		{
-			cout << "\n\n\t종료~~~~~!!!!!" << endl;
-			cout << "\t";
+			_title();
+			cout << "\n\t종료~~~~~!!!!!" << endl;
 			break;
 		}
 		case 1:
 		{
-			cout << "\t1. 할 일 목록 보기" << endl;
+			_title();
+			td_list.add_todo();
+
+			cout << "\n\t완료!!!!" << endl;
 			break;
 		}
 		case 2:
 		{
-			cout << "\t2. 할 일 추가" << endl;
+			int sub_select;
+			do
+			{
+				_title();
+				_list_interface();
+				cout << "\t입력 >> ";
+				cin >> sub_select;
+
+				switch (sub_select)
+				{
+				case 0:
+				{
+					break;
+				}
+				case 1:
+				{
+					int idx;
+					td_list.print_list();
+					
+					if (td_list.size() != 0)
+					{
+						cout << "\t선택 >> ";
+						cin >> idx;
+						Todo temp;
+						if (idx > 0 && idx <= td_list.size())
+						{
+							temp = td_list.get_item(idx);
+							cout << temp.get_title() << endl;
+						}
+					}
+					break;
+				}
+				case 2:
+				{
+					break;
+				}
+				case 3:
+				{
+					break;
+				}
+				default:
+				{
+					cout << "\n\n\t다시 입력하세요!!!!" << endl;
+					break;
+				}
+				}
+
+			} while (sub_select < 0 || sub_select > 3);
 			break;
 		}
 		case 3:
 		{
-			cout << "\t3. 할 일 삭제" << endl;
 			break;
 		}
 		case 4:
 		{
-			cout << "\t4. 할 일 수정" << endl;
 			break;
 		}
 		case 5:
 		{
-			cout << "\t5. 할 일 검색" << endl;
 			break;
 		}
 		case 6:
 		{
-			cout << "\t6. 일정 생성" << endl;
-			break;
-		}
-		case 7:
-		{
-			cout << "\t7. 일정 보기" << endl;
 			break;
 		}
 		default:
 		{
 			cout << "\n\n\t다시 입력하세요!!!!" << endl;
-			cout << "\t";
-			system("pause");
 			break;
 		}
 		}
 
+		cout << "\t";
+		system("pause");
 	} while (select != 0);
 }
 
-void Application::_interface()
+void Application::_title()
 {
 	system("cls");
-	cout << endl << endl;
-	cout << "\t=========== 메뉴 ===========" << endl;
+	cout << endl;
+	cout << "\t\t< To do List >" << endl;
+}
+
+void Application::_main_interface()
+{
+	cout << "\t============ MENU ============" << endl;
 	cout << "\t0. 종료" << endl;
-	cout << "\t1. 할 일 목록 보기" << endl;
-	cout << "\t2. 할 일 추가" << endl;
+	cout << "\t1. 할 일 추가" << endl;
+	cout << "\t2. 할 일 조회 및 관리" << endl;
+	cout << "\t3. 할 일 검색" << endl;
+	cout << "\t4. 일정 생성" << endl;
+	cout << "\t5. 일정 조회" << endl;
+	cout << "\t6. 현재 할 일 조회" << endl;
+	cout << "\t==============================" << endl;
+}
+
+void Application::_list_interface()
+{
+	cout << "\t========= LIST  MENU =========" << endl;
+	cout << "\t0. 종료" << endl;
+	cout << "\t1. 할 일 조회" << endl;
+	cout << "\t2. 할 일 수정" << endl;
 	cout << "\t3. 할 일 삭제" << endl;
-	cout << "\t4. 할 일 수정" << endl;
-	cout << "\t5. 할 일 검색" << endl;
-	cout << "\t6. 일정 생성" << endl;
-	cout << "\t7. 일정 보기" << endl;
-	cout << "\t============================" << endl;
+	cout << "\t==============================" << endl;
 }

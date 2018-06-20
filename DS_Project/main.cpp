@@ -7,5 +7,6 @@ int main()
 {
 	Application ap;
 	ap.start();
+
 	return 0;
 }
