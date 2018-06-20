@@ -93,6 +93,13 @@ private:
 	*/
 	void _updt_td_srch();
 
+	/*
+		Function : td_srch에서 검색 기준을 토대로 검색을 함 
+		Pre : td_srch가 초기화되어있어야 함
+		Post : 검색 결과를 제공해줌
+	*/
+	void _search_todo();
+
 private:
 	TdList td_list;
 	TdSearch td_srch;

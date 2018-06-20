@@ -28,6 +28,7 @@ Todo::Todo(const Todo & other)
 	deadline = other.deadline;
 	priority = other.priority;
 	fin = other.fin;
+	chk = other.chk;
 }
 
 Todo & Todo::operator=(const Todo & other)
@@ -39,6 +40,7 @@ Todo & Todo::operator=(const Todo & other)
 	deadline = other.deadline;
 	priority = other.priority;
 	fin = other.fin;
+	chk = other.chk;
 
 	return *this;
 }

@@ -119,6 +119,7 @@ void Tree<_Ty>::_destroy(TreeNode<_Ty> *& tree)
 		_destroy(tree->left);
 		_destroy(tree->right);
 		delete tree;
+		tree = nullptr;
 	}
 }
 
@@ -175,9 +176,9 @@ void Tree<_Ty>::_search(TreeNode<_Ty>* tree, _Ty & item, bool & chk)
 	{
 		if (tree == nullptr)
 			chk = false;
-		else if (tree->info < item)
-			_search(tree->left, item, chk);
 		else if (tree->info > item)
+			_search(tree->left, item, chk);
+		else if (tree->info < item)
 			_search(tree->right, item, chk);
 		else
 		{

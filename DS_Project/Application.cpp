@@ -82,8 +82,8 @@ void Application::start()
 		}
 		case 3:
 		{
-			_title();
 			_updt_td_srch();
+			_search_todo();
 			break;
 		}
 		case 4:
@@ -173,7 +173,6 @@ void Application::_change_todo_info()
 	{
 		cout << "\t선택 >> ";
 		cin >> idx;
-		Todo temp;
 		if (idx > 0 && idx <= td_list.size())
 		{
 			_title();
@@ -211,6 +210,9 @@ void Application::_delete_todo()
 
 void Application::_updt_td_srch()
 {
+	td_srch.initialize();
+	_title();
+
 	int select;
 	cout << "\t========= TYPE  INFO =========" << endl;
 	cout << "\t1. 제목" << endl;
@@ -218,7 +220,6 @@ void Application::_updt_td_srch()
 	cout << "\t3. 완료일" << endl;
 	cout << "\t4. 예상 소요 시간" << endl;
 	cout << "\t5. 우선순위" << endl;
-	cout << "\t6. 완료 여부" << endl;
 	cout << "\t==============================" << endl;
 	cout << "\t분류 기준 선택 >> ";
 	cin >> select;
@@ -248,13 +249,54 @@ void Application::_updt_td_srch()
 		std = TTL;
 		break;
 	}
+	td_srch.set_std(std);
 
 	int length = td_list.size();
-	Todo temp;
+	Todo* temp;
+
+	td_list.reset_list();
 	for (int i = 0; i < length; i++)
 	{
-		temp = td_list.get_next_item();
-		temp.set_chk(std);
-		td_srch.insert_item(temp);
+		temp = new Todo;
+		*temp = td_list.get_next_item();
+		temp->set_chk(std);
+		td_srch.insert_item(*temp);
+	}
+
+	cout << "\t검색 목록 초기화 중******" << endl;
+}
+
+void Application::_search_todo()
+{
+	_title();
+	TdList temp;
+	bool chk = td_srch.search_todo_by_std(temp);
+	if (chk)
+	{
+		_title();
+		cout << "\t======= SEARCH  RESULT =======" << endl;
+		temp.print_list();
+
+		int idx;
+		if (temp.size() != 0)
+		{
+			cout << "\t선택 >> ";
+			cin >> idx;
+			
+			if (idx > 0 && idx <= temp.size())
+			{
+				_title();
+				temp.print_todo_info(idx);
+			}
+			else
+			{
+				cout << "\n\t잘못 입력하셨습니다...." << endl;
+			}
+		}
+	}
+	else
+	{
+		_title();
+		cout << "\n\t존재하지 않는 할 일입니다...." << endl;
 	}
 }
