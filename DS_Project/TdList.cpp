@@ -123,5 +123,5 @@ void TdList::delete_todo(int idx)
 		*temp = get_next_item();
 	}
 	delete_item(*temp);
-	cout << "\t" << idx << "번째 Todo가 삭제되었습니다!!!!" << endl;
+	cout << "\n\t" << idx << "번째 Todo가 삭제되었습니다!!!!" << endl;
 }

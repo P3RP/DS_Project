@@ -210,7 +210,6 @@ void UnsortedList<_Ty>::delete_item(_Ty item)
 		else
 		{
 			delete temp;
-			list_data = nullptr;
 		}
 		length--;
 	}

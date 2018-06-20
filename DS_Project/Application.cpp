@@ -155,7 +155,7 @@ void Application::_get_todo_info()
 		}
 		else
 		{
-			cout << "\t잘못 입력하셨습니다...." << endl;
+			cout << "\n\t잘못 입력하셨습니다...." << endl;
 		}
 	}
 }
@@ -178,7 +178,7 @@ void Application::_delete_todo()
 		}
 		else
 		{
-			cout << "\t잘못 입력하셨습니다...." << endl;
+			cout << "\n\t잘못 입력하셨습니다...." << endl;
 		}
 	}
 }
