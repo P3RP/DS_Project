@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Heap.h"
-#define MAX_SIZE 10000
+#define MAX_SIZE 100
 
 template <class T>
 class FullPQueue{};

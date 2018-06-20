@@ -100,8 +100,28 @@ private:
 	*/
 	void _search_todo();
 
+
+	/*
+	[ Today Plan ]
+	*/
+
+	/*
+		Function : td_plan의 Todo를 통해 td_plan를 update하는 함수
+		Pre : td_list가 초기화되어야 함
+		Post : td_plan를 update함
+	*/
+	void _updt_td_plan();
+
+	/*
+		Function : td_plan 내의 Todo를 조회하는 함수
+		Pre : td_plan이 초기화되어야 함
+		Post : td_plan 내의 Todo를 조회함
+	*/
+	void _check_td_plan();
+
 private:
 	TdList td_list;
 	TdSearch td_srch;
+	TdPlan td_plan;
 };
 

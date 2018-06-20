@@ -88,10 +88,13 @@ void Application::start()
 		}
 		case 4:
 		{
+			_updt_td_plan();
+			cout << "\n\tToday Plan 생성 완료!!" << endl;
 			break;
 		}
 		case 5:
 		{
+			_check_td_plan();
 			break;
 		}
 		case 6:
@@ -299,4 +302,70 @@ void Application::_search_todo()
 		_title();
 		cout << "\n\t존재하지 않는 할 일입니다...." << endl;
 	}
+}
+
+void Application::_updt_td_plan()
+{
+	td_plan.initialize();
+	_title();
+
+	int select;
+	cout << "\t========= TYPE  INFO =========" << endl;
+	cout << "\t1. 제목" << endl;
+	cout << "\t2. 내용" << endl;
+	cout << "\t3. 완료일" << endl;
+	cout << "\t4. 예상 소요 시간" << endl;
+	cout << "\t5. 우선순위" << endl;
+	cout << "\t==============================" << endl;
+	cout << "\t분류 기준 선택 >> ";
+	cin >> select;
+
+	Type std;
+	switch (select)
+	{
+	case 1:
+		std = TTL;
+		break;
+	case 2:
+		std = CNTT;
+		break;
+	case 3:
+		std = DDL;
+		break;
+	case 4:
+		std = TIME;
+		break;
+	case 5:
+		std = PRR;
+		break;
+	case 6:
+		std = FIN;
+		break;
+	default:
+		std = TTL;
+		break;
+	}
+	td_plan.set_std(std);
+
+	int length = td_list.size();
+	Todo* temp;
+
+	td_list.reset_list();
+	for (int i = 0; i < length; i++)
+	{
+		temp = new Todo;
+		*temp = td_list.get_next_item();
+		temp->set_chk(std);
+		td_plan.enqueue(*temp);
+	}
+
+	cout << "\tToday Plan 생성 중******" << endl;
+}
+
+void Application::_check_td_plan()
+{
+	_title();
+
+	cout << "\t========= TODAY PLAN =========" << endl;
+	
 }
