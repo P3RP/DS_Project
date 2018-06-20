@@ -113,3 +113,15 @@ void TdList::print_todo_info(int idx)
 
 	cout << "\t==============================" << endl;
 }
+
+void TdList::delete_todo(int idx)
+{
+	reset_list();
+	Todo* temp = new Todo;
+	for (int i = 0; i < idx; i++)
+	{
+		*temp = get_next_item();
+	}
+	delete_item(*temp);
+	cout << "\t" << idx << "번째 Todo가 삭제되었습니다!!!!" << endl;
+}

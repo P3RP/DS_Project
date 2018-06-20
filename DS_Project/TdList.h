@@ -40,11 +40,18 @@ public:
 	void print_list();
 
 	/*
-		Function : idx번째에 있는 Todo의 info를 출력
+		Function : idx번째에 있는 Todo의 info를 출력하는 함수
 		Pre : List가 초기화되어있어야 함
 		Post : idx번째에 있는 Todo의 info를 출력
 	*/
 	void print_todo_info(int idx);
+
+	/*
+		Function : idx번째에 있는 Todo를 제거하는 함수
+		Pre : List가 초기화되어있어야 함
+		Post : idx번째에 있는 Todo를 제거하는 함수
+	*/
+	void delete_todo(int idx);
 
 private:
 	int idx_cnt;

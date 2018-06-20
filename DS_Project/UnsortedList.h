@@ -194,14 +194,23 @@ void UnsortedList<_Ty>::delete_item(_Ty item)
 	{
 		if (temp->next != nullptr)
 		{
-			temp->prev->next = temp->next;
-			temp->next->prev = temp->prev;
-			delete temp;
+			if (temp->prev != nullptr)
+			{
+				temp->prev->next = temp->next;
+				temp->next->prev = temp->prev;
+				delete temp;
+			}
+			else
+			{
+				temp->next->prev = nullptr;
+				list_data = temp->next;
+				delete temp;
+			}
 		}
 		else
 		{
-			temp->prev->next = nullptr;
 			delete temp;
+			list_data = nullptr;
 		}
 		length--;
 	}

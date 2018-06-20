@@ -63,6 +63,8 @@ public:
 	void set_priority(int new_priority);
 	void set_fin(bool new_fin);
 
+	bool operator== (const Todo& other);
+
 private:
 	int idx;
 	string title;

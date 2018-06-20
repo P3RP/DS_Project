@@ -111,3 +111,8 @@ void Todo::set_fin(bool new_fin)
 {
 	fin = new_fin;
 }
+
+bool Todo::operator==(const Todo & other)
+{
+	return (title == other.title);
+}

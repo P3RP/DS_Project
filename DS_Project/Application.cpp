@@ -67,6 +67,7 @@ void Application::start()
 				}
 				case 3:
 				{
+					_delete_todo();
 					break;
 				}
 				default:
@@ -138,9 +139,10 @@ void Application::_list_interface()
 
 void Application::_get_todo_info()
 {
-	int idx;
+	_title();
 	td_list.print_list();
 
+	int idx;
 	if (td_list.size() != 0)
 	{
 		cout << "\t선택 >> ";
@@ -150,6 +152,29 @@ void Application::_get_todo_info()
 		{
 			_title();
 			td_list.print_todo_info(idx);
+		}
+		else
+		{
+			cout << "\t잘못 입력하셨습니다...." << endl;
+		}
+	}
+}
+
+void Application::_delete_todo()
+{
+	_title();
+	td_list.print_list();
+
+	int idx;
+	if (td_list.size() != 0)
+	{
+		cout << "\t선택 >> ";
+		cin >> idx;
+		Todo temp;
+		if (idx > 0 && idx <= td_list.size())
+		{
+			_title();
+			td_list.delete_todo(idx);
 		}
 		else
 		{
