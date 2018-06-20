@@ -8,8 +8,8 @@ template<class _Ty>
 struct TreeNode
 {
 	_Ty info;
-	TreeNode* left;
-	TreeNode* right;
+	TreeNode<_Ty>* left;
+	TreeNode<_Ty>* right;
 };
 
 
@@ -125,15 +125,15 @@ void Tree<_Ty>::_destroy(TreeNode<_Ty> *& tree)
 template<class _Ty>
 bool Tree<_Ty>::is_full()
 {
-	Node<_Ty>* location;
+	QNode<_Ty>* location;
 	try
 	{
-		location = new Node<_Ty>;
+		location = new QNode<_Ty>;
 		delete location;
 		return false;
 
 	}
-	catch (std::bad_alloc exception)
+	catch (typename std::bad_alloc exception)
 	{
 		return true;
 	}

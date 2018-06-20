@@ -8,10 +8,10 @@ template<class _Ty>
 class EmptyQueue{};
 
 template<class _Ty>
-struct Node
+struct QNode
 {
 	_Ty info;
-	Node<_Ty>* next;
+	QNode<_Ty>* next;
 };
 
 template<class _Ty>
@@ -27,8 +27,8 @@ public:
 	void enqueue(_Ty item);
 	void dequeue(_Ty& item);
 private:
-	Node<_Ty>* front;
-	Node<_Ty>* rear;
+	QNode<_Ty>* front;
+	QNode<_Ty>* rear;
 };
 
 template<class _Ty>
@@ -47,7 +47,7 @@ Queue<_Ty>::~Queue()
 template<class _Ty>
 void Queue<_Ty>::make_empty()
 {
-	Node<_Ty>* temp;
+	QNode<_Ty>* temp;
 	while (front != nullptr)
 	{
 		temp = front;
@@ -66,15 +66,15 @@ bool Queue<_Ty>::is_empty()
 template<class _Ty>
 bool Queue<_Ty>::is_full()
 {
-	Node<_Ty>* location;
+	QNode<_Ty>* location;
 	try
 	{
-		location = new Node<_Ty>;
+		location = new QNode<_Ty>;
 		delete location;
 		return false;
 
 	}
-	catch (std::bad_alloc exception)
+	catch (typename std::bad_alloc exception)
 	{
 		return true;
 	}
@@ -87,8 +87,8 @@ void Queue<_Ty>::enqueue(_Ty item)
 		throw FullQueue<_Ty>();
 	else
 	{
-		Node<_Ty>* new_node;
-		new_node = new Node<_Ty>;
+		QNode<_Ty>* new_node;
+		new_node = new QNode<_Ty>;
 		new_node->info = item;
 		new_node->next = nullptr;
 
@@ -107,7 +107,7 @@ void Queue<_Ty>::dequeue(_Ty & item)
 		throw EmptyQueue<_Ty>();
 	else
 	{
-		Node<_Ty>* temp;
+		QNode<_Ty>* temp;
 
 		temp = front;
 		item = front->info;

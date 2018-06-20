@@ -206,3 +206,10 @@ void Application::_delete_todo()
 		}
 	}
 }
+
+void Application::_updt_td_srch()
+{
+	int length = td_list.size();
+	
+	Todo temp;
+}

@@ -11,6 +11,7 @@ Todo::Todo()
 	deadline = "";
 	priority = -1;
 	fin = false;
+	chk = TTL;
 }
 
 
@@ -77,6 +78,11 @@ bool Todo::get_fin()
 	return fin;
 }
 
+Type Todo::get_chk()
+{
+	return chk;
+}
+
 void Todo::set_idx(int new_idx)
 {
 	idx = new_idx;
@@ -112,20 +118,52 @@ void Todo::set_fin(bool new_fin)
 	fin = new_fin;
 }
 
+void Todo::set_chk(Type new_type)
+{
+	chk = new_type;
+}
+
 bool Todo::operator==(const Todo & other)
 {
-	bool chk = true;
-	if (title != other.title)
-		chk = false;
-	if (content != other.content)
-		chk = false;
-	if (time != other.time)
-		chk = false;
-	if (deadline != other.deadline)
-		chk = false;
-	if (priority != other.priority)
-		chk = false;
-	if (fin != other.fin)
-		chk = false;
-	return chk;
+	switch (chk)
+	{
+	case IDX:
+		if (idx != other.idx)
+			return false;
+		else
+			return true;
+		break;
+	case TTL:
+		if (title != other.title)
+			return false;
+		else
+			return true;
+		break;
+	case CNTT:
+		if (content != other.content)
+			return false;
+		else
+			return true;
+		break;
+	case DDL:
+		if (deadline != other.deadline)
+			return false;
+		else
+			return true;
+		break;
+	case PRR:
+		if (priority != other.priority)
+			return false;
+		else
+			return true;
+		break;
+	case FIN:
+		if (fin != other.fin)
+			return false;
+		else
+			return true;
+		break;
+	default:
+		break;
+	}
 }

@@ -5,8 +5,8 @@
 #include <Windows.h>
 
 #include "TdList.h"
-#include "TdPlan.h"
 #include "TdSearch.h"
+#include "TdPlan.h"
 #include "Todo.h"
 
 using std::cout;
@@ -31,6 +31,10 @@ public:
 
 private:
 	/*
+		[ Interface ]
+	*/
+
+	/*
 		Function : Title을 콘솔에 출력하는 함수
 		Pre : X
 		Post : Console에 Title를 출력함
@@ -50,6 +54,11 @@ private:
 		Post : Console에 List Interface를 출력함
 	*/
 	void _list_interface();
+
+
+	/*
+		[ Todo List ]
+	*/
 
 	/*
 		Function : Todo를 조회하는 함수
@@ -72,7 +81,20 @@ private:
 	*/
 	void _delete_todo();
 
+
+	/*
+		[ Todo Search ]
+	*/
+
+	/*
+		Function : td_list의 Todo를 통해 td_srch를 update하는 함수
+		Pre : td_list가 초기화되어야 함
+		Post : td_srch를 update함
+	*/
+	void _updt_td_srch();
+
 private:
 	TdList td_list;
+	TdSearch td_srch;
 };
 

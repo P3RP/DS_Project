@@ -4,6 +4,10 @@
 
 using std::string;
 
+enum Type {
+	IDX, TTL, CNTT, DDL, PRR, FIN
+};
+
 class Todo
 {
 public:
@@ -48,6 +52,7 @@ public:
 	string get_deadline();
 	int get_priority();
 	bool get_fin();
+	Type get_chk();
 
 	/*
 		[ Set Function ]
@@ -62,6 +67,7 @@ public:
 	void set_deadline(string new_deadline);
 	void set_priority(int new_priority);
 	void set_fin(bool new_fin);
+	void set_chk(Type new_type);
 
 	bool operator== (const Todo& other);
 
@@ -73,5 +79,6 @@ private:
 	string deadline;
 	int priority;
 	bool fin;
+	Type chk;
 };
 
