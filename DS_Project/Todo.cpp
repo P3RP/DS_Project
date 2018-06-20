@@ -114,5 +114,18 @@ void Todo::set_fin(bool new_fin)
 
 bool Todo::operator==(const Todo & other)
 {
-	return (title == other.title);
+	bool chk = true;
+	if (title != other.title)
+		chk = false;
+	if (content != other.content)
+		chk = false;
+	if (time != other.time)
+		chk = false;
+	if (deadline != other.deadline)
+		chk = false;
+	if (priority != other.priority)
+		chk = false;
+	if (fin != other.fin)
+		chk = false;
+	return chk;
 }
