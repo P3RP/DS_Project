@@ -54,6 +54,7 @@ public:
 	bool get_fin();
 	Type get_chk();
 
+
 	/*
 		[ Set Function ]
 		Function : Todo 객체의 value의 값을 설정하는 함수
@@ -69,7 +70,18 @@ public:
 	void set_fin(bool new_fin);
 	void set_chk(Type new_type);
 
+
+	/*
+		[ 비교 연산자 ]
+		Function : 다른 Todo 객체와 비교한 값을 return하는 operator
+		Pre : X
+		Post : 다른 Todo 객체와 비교한 값을 return함
+	*/
 	bool operator== (const Todo& other);
+	bool operator<= (const Todo& other);
+	bool operator< (const Todo& other);
+	bool operator>= (const Todo& other);
+	bool operator> (const Todo& other);
 
 private:
 	int idx;
