@@ -63,6 +63,7 @@ void Application::start()
 				}
 				case 2:
 				{
+					_change_todo_info();
 					break;
 				}
 				case 3:
@@ -152,6 +153,29 @@ void Application::_get_todo_info()
 		{
 			_title();
 			td_list.print_todo_info(idx);
+		}
+		else
+		{
+			cout << "\n\t잘못 입력하셨습니다...." << endl;
+		}
+	}
+}
+
+void Application::_change_todo_info()
+{
+	_title();
+	td_list.print_list();
+
+	int idx;
+	if (td_list.size() != 0)
+	{
+		cout << "\t선택 >> ";
+		cin >> idx;
+		Todo temp;
+		if (idx > 0 && idx <= td_list.size())
+		{
+			_title();
+			td_list.modify_todo(idx);
 		}
 		else
 		{

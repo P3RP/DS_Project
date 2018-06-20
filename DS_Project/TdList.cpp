@@ -114,6 +114,34 @@ void TdList::print_todo_info(int idx)
 	cout << "\t==============================" << endl;
 }
 
+void TdList::modify_todo(int idx)
+{
+	reset_list();
+	Todo* temp = new Todo;
+	for (int i = 0; i < idx; i++)
+	{
+		*temp = get_next_item();
+	}
+
+	cout << "\t========= TODO  INFO =========" << endl;
+	cout << "\t[ 제목 ]" << endl;
+	cout << "\t>> " << temp->get_title() << endl;
+
+	cout << endl << "\t[ 내용 ]" << endl;
+	cout << "\t>> " << temp->get_content() << endl;
+
+	cout << endl << "\t[ 완료일 ]" << endl;
+	cout << "\t>> " << temp->get_deadline() << endl;
+
+	cout << endl << "\t[ 예상 소요 시간 ]" << endl;
+	cout << "\t>> " << temp->get_time() << endl;
+
+	cout << endl << "\t[ 우선순위 (기본값 0) ]" << endl;
+	cout << "\t>> " << temp->get_priority() << endl;
+
+	cout << "\t==============================" << endl;
+}
+
 void TdList::delete_todo(int idx)
 {
 	reset_list();
