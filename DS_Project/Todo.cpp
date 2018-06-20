@@ -174,39 +174,39 @@ bool Todo::operator<=(const Todo & other)
 	{
 	case IDX:
 		if (idx <= other.idx)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case TTL:
 		if (title <= other.title)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case CNTT:
 		if (content <= other.content)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case DDL:
 		if (deadline <= other.deadline)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case PRR:
 		if (priority <= other.priority)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case FIN:
 		if (fin <= other.fin)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	default:
 		break;
@@ -219,39 +219,39 @@ bool Todo::operator<(const Todo & other)
 	{
 	case IDX:
 		if (idx < other.idx)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case TTL:
 		if (title < other.title)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case CNTT:
 		if (content < other.content)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case DDL:
 		if (deadline < other.deadline)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case PRR:
 		if (priority < other.priority)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case FIN:
 		if (fin < other.fin)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	default:
 		break;
@@ -264,39 +264,39 @@ bool Todo::operator>=(const Todo & other)
 	{
 	case IDX:
 		if (idx >= other.idx)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case TTL:
 		if (title >= other.title)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case CNTT:
 		if (content >= other.content)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case DDL:
 		if (deadline >= other.deadline)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case PRR:
 		if (priority >= other.priority)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case FIN:
 		if (fin >= other.fin)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	default:
 		break;
@@ -309,39 +309,39 @@ bool Todo::operator>(const Todo & other)
 	{
 	case IDX:
 		if (idx > other.idx)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case TTL:
 		if (title > other.title)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case CNTT:
 		if (content > other.content)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case DDL:
 		if (deadline > other.deadline)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case PRR:
 		if (priority > other.priority)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	case FIN:
 		if (fin > other.fin)
-			return false;
-		else
 			return true;
+		else
+			return false;
 		break;
 	default:
 		break;

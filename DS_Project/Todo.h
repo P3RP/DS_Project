@@ -5,7 +5,7 @@
 using std::string;
 
 enum Type {
-	IDX, TTL, CNTT, DDL, PRR, FIN
+	IDX, TTL, CNTT, TIME, DDL, PRR, FIN
 };
 
 class Todo
