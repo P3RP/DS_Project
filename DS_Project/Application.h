@@ -119,9 +119,18 @@ private:
 	*/
 	void _check_td_plan();
 
+	/*
+		Function : now_work를 update하고 정보를 출력하는 함수
+		Pre : td_plan이 초기화되어야 함
+		Post : now_work를 update하고 정보를 출력함
+	*/
+	void _get_now_work();
+
 private:
 	TdList td_list;
 	TdSearch td_srch;
 	TdPlan td_plan;
+	Todo now_work;
+	bool exist_now_work;
 };
 
