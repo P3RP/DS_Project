@@ -86,7 +86,7 @@ void TdList::print_list()
 	cout << "\t==============================" << endl;
 }
 
-Todo & TdList::get_item(int idx)
+void TdList::print_todo_info(int idx)
 {
 	reset_list();
 	Todo* temp = new Todo;
@@ -94,5 +94,22 @@ Todo & TdList::get_item(int idx)
 	{
 		*temp = get_next_item();
 	}
-	return *temp;
+
+	cout << "\t========= TODO  INFO =========" << endl;
+	cout << "\t[ 제목 ]" << endl;
+	cout << "\t>> " << temp->get_title() << endl;
+
+	cout << endl << "\t[ 내용 ]" << endl;
+	cout << "\t>> " << temp->get_content() << endl;
+
+	cout << endl << "\t[ 완료일 ]" << endl;
+	cout << "\t>> " << temp->get_deadline() << endl;
+
+	cout << endl << "\t[ 예상 소요 시간 ]" << endl;
+	cout << "\t>> " << temp->get_time() << endl;
+
+	cout << endl << "\t[ 우선순위 (기본값 0) ]" << endl;
+	cout << "\t>> " << temp->get_priority() << endl;
+
+	cout << "\t==============================" << endl;
 }

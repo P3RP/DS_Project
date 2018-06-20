@@ -49,6 +49,13 @@ private:
 	*/
 	void _list_interface();
 
+	/*
+		Function : Todo를 조회하는 함수
+		Pre : Todo가 초기화되어있어야 함
+		Post : Todo의 info를 조회함
+	*/
+	void _get_todo_info();
+
 private:
 	TdList td_list;
 };

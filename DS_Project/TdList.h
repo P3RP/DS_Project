@@ -40,11 +40,11 @@ public:
 	void print_list();
 
 	/*
-		Function : idx번째에 있는 item을 return함
+		Function : idx번째에 있는 Todo의 info를 출력
 		Pre : List가 초기화되어있어야 함
-		Post : idx번째에 있는 item을 return함
+		Post : idx번째에 있는 Todo의 info를 출력
 	*/
-	Todo& get_item(int idx);
+	void print_todo_info(int idx);
 
 private:
 	int idx_cnt;

@@ -58,20 +58,7 @@ void Application::start()
 				}
 				case 1:
 				{
-					int idx;
-					td_list.print_list();
-					
-					if (td_list.size() != 0)
-					{
-						cout << "\t선택 >> ";
-						cin >> idx;
-						Todo temp;
-						if (idx > 0 && idx <= td_list.size())
-						{
-							temp = td_list.get_item(idx);
-							cout << temp.get_title() << endl;
-						}
-					}
+					_get_todo_info();
 					break;
 				}
 				case 2:
@@ -88,7 +75,6 @@ void Application::start()
 					break;
 				}
 				}
-
 			} while (sub_select < 0 || sub_select > 3);
 			break;
 		}
@@ -148,4 +134,26 @@ void Application::_list_interface()
 	cout << "\t2. 할 일 수정" << endl;
 	cout << "\t3. 할 일 삭제" << endl;
 	cout << "\t==============================" << endl;
+}
+
+void Application::_get_todo_info()
+{
+	int idx;
+	td_list.print_list();
+
+	if (td_list.size() != 0)
+	{
+		cout << "\t선택 >> ";
+		cin >> idx;
+		Todo temp;
+		if (idx > 0 && idx <= td_list.size())
+		{
+			_title();
+			td_list.print_todo_info(idx);
+		}
+		else
+		{
+			cout << "\t잘못 입력하셨습니다...." << endl;
+		}
+	}
 }
