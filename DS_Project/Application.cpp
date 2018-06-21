@@ -106,10 +106,12 @@ void Application::start()
 		}
 		case 7:
 		{
+			_get_todo_file();
 			break;
 		}
 		case 8:
 		{
+			_let_todo_file_out();
 			break;
 		}
 		default:
@@ -476,25 +478,113 @@ void Application::_get_now_work()
 
 void Application::_get_todo_file()
 {
-}
-
-void Application::_let_todo_file_out()
-{
 	string file_name;
 
 	_title();
-	cout << "\t========== FILE OUT ==========" << endl;
+	cout << "\t========== FILE  IN ==========" << endl;
 
 	cout << "\t[ 파일 이름 입력 ]" << endl;
 	cout << "\t>> ";
 	cin >> file_name;
 
-	ofstream out_file;
-	out_file.open(file_name);
+	ifstream in_file;
+	in_file.open(file_name);
 
-	out_file << td_list.get_idx_cnt() << endl;
+	if (in_file.fail())
+	{
+		cout << "\n\tFile이 존재하지 않습니다...." << endl;
+		return;
+	}
 
+	int temp_int;
+	string temp_string;
 
+	in_file >> temp_int;
+	td_list.set_idx_cnt(temp_int);
 
-	out_file.close();
+	Todo* temp;
+	while (!in_file.eof())
+	{
+		temp = new Todo;
+
+		in_file >> temp_int;
+		temp->set_idx(temp_int);
+
+		in_file >> temp_string;
+		temp->set_title(temp_string);
+
+		in_file >> temp_string;
+		temp->set_content(temp_string);
+
+		in_file >> temp_string;
+		temp->set_deadline(temp_string);
+
+		in_file >> temp_int;
+		temp->set_time(temp_int);
+
+		in_file >> temp_int;
+		temp->set_priority(temp_int);
+
+		in_file >> temp_string;
+		if (temp_string == "미완료")
+			temp->set_fin(false);
+		else if (temp_string == "완료")
+			temp->set_fin(true);
+
+		td_list.insert_item(*temp);
+	}
+
+	cout << "\n\tTodo 목록 불러오기 완료!!!" << endl;
+
+	in_file.close();
+}
+
+void Application::_let_todo_file_out()
+{
+	if (td_list.size() > 0)
+	{
+		string file_name;
+
+		_title();
+		cout << "\t========== FILE OUT ==========" << endl;
+
+		cout << "\t[ 파일 이름 입력 ]" << endl;
+		cout << "\t>> ";
+		cin >> file_name;
+
+		ofstream out_file;
+		out_file.open(file_name);
+
+		out_file << td_list.get_idx_cnt();
+
+		Todo temp;
+		int length = td_list.size();
+
+		td_list.reset_list();
+		for (int i = 0; i < length; i++)
+		{
+			temp = td_list.get_next_item();
+			out_file << endl;
+			out_file << temp.get_idx() << "\t";
+			out_file << temp.get_title() << "\t";
+			out_file << temp.get_content() << "\t";
+			out_file << temp.get_deadline() << "\t";
+			out_file << temp.get_time() << "\t";
+			out_file << temp.get_priority() << "\t";
+
+			if (temp.get_fin())
+				out_file << "완료";
+			else
+				out_file << "미완료";
+		}
+
+		cout << "\n\tTodo 목록 내보내기 완료!!!" << endl;
+
+		out_file.close();
+	}
+	else
+	{
+		_title();
+		cout << "\t할 일이 존재하지 않습니다....." << endl;
+	}
 }

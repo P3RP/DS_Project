@@ -320,7 +320,7 @@ int TdList::get_idx_cnt()
 	return idx_cnt;
 }
 
-void TdList::get_idx_cnt(int new_idx)
+void TdList::set_idx_cnt(int new_idx)
 {
 	idx_cnt = new_idx;
 }

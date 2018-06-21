@@ -72,7 +72,7 @@ public:
 		Pre : X
 		Post : idx_cnt를 new_idx로 설정함
 	*/
-	void get_idx_cnt(int new_idx);
+	void set_idx_cnt(int new_idx);
 
 private:
 	int idx_cnt;
