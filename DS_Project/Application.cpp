@@ -104,6 +104,14 @@ void Application::start()
 			_get_now_work();
 			break;
 		}
+		case 7:
+		{
+			break;
+		}
+		case 8:
+		{
+			break;
+		}
 		default:
 		{
 			cout << "\n\n\t다시 입력하세요!!!!" << endl;
@@ -133,6 +141,8 @@ void Application::_main_interface()
 	cout << "\t4. 일정 생성" << endl;
 	cout << "\t5. 일정 조회" << endl;
 	cout << "\t6. 현재 할 일 조회" << endl;
+	cout << "\t7. 할 일 정보 불러오기" << endl;
+	cout << "\t8. 할 일 정보 내보내기" << endl;
 	cout << "\t==============================" << endl;
 }
 
@@ -462,4 +472,29 @@ void Application::_get_now_work()
 		_title();
 		cout << "\tToday Plan이 존재하지 않습니다...." << endl;
 	}
+}
+
+void Application::_get_todo_file()
+{
+}
+
+void Application::_let_todo_file_out()
+{
+	string file_name;
+
+	_title();
+	cout << "\t========== FILE OUT ==========" << endl;
+
+	cout << "\t[ 파일 이름 입력 ]" << endl;
+	cout << "\t>> ";
+	cin >> file_name;
+
+	ofstream out_file;
+	out_file.open(file_name);
+
+	out_file << td_list.get_idx_cnt() << endl;
+
+
+
+	out_file.close();
 }

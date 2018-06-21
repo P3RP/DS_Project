@@ -314,3 +314,13 @@ void TdList::delete_todo(int idx)
 	delete_item(*temp);
 	cout << "\n\t" << idx << "번째 Todo가 삭제되었습니다!!!!" << endl;
 }
+
+int TdList::get_idx_cnt()
+{
+	return idx_cnt;
+}
+
+void TdList::get_idx_cnt(int new_idx)
+{
+	idx_cnt = new_idx;
+}

@@ -60,6 +60,20 @@ public:
 	*/
 	void delete_todo(int idx);
 
+	/*
+		Function : idx_cnt를 return하는 함수
+		Pre : X
+		Post : idx_cnt를 return함
+	*/
+	int get_idx_cnt();
+
+	/*
+		Function : idx_cnt를 new_idx로 설정하는 함수
+		Pre : X
+		Post : idx_cnt를 new_idx로 설정함
+	*/
+	void get_idx_cnt(int new_idx);
+
 private:
 	int idx_cnt;
 };

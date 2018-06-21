@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <Windows.h>
+#include <fstream>
 
 #include "TdList.h"
 #include "TdSearch.h"
@@ -15,6 +16,9 @@ using std::endl;
 
 using std::string;
 using std::getline;
+
+using std::ofstream;
+using std::ifstream;
 
 class Application
 {
@@ -125,6 +129,21 @@ private:
 		Post : now_work를 update하고 정보를 출력함
 	*/
 	void _get_now_work();
+
+	
+	/*
+		Function : Todo 목록을 외부 파일에서 불러오는 함수
+		Pre : td_list가 초기화되어야 함
+		Post : Todo 목록을 외부 파일에서 불러와 저장함
+	*/
+	void _get_todo_file();
+
+	/*
+		Function : Todo 목록을 외부 파일에 내보내는 함수
+		Pre : td_list가 초기화되어야 함
+		Post : Todo 목록을 가진 외부 파일을 생성함
+	*/
+	void _let_todo_file_out();
 
 private:
 	TdList td_list;
